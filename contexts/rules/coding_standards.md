@@ -2,8 +2,14 @@
 
 File này quy định chuẩn viết code và chuẩn thiết kế giao diện Streamlit chuyên nghiệp, mượt mà và tối ưu UX/UI.
 
-## 1. Chuẩn Thiết Kế Giao Diện (Executive Professional UI Design)
-- **Hạn chế dùng Emoji lạm dụng**: KHÔNG gắn emoji tràn lan ở mọi tiêu đề/thẻ. Chỉ sử dụng icon hoặc emoji cực kỳ tiết chế ở vị trí hợp lý (như trang chính hoặc nút hành động quan trọng).
+## 1. Chuẩn Thiết Kế Giao Diện (Executive Professional UI & Material Icons)
+- **NGHIÊM CẤM DÙNG EMOJI MÀU SẮC RƯỜM RÀ**: Tuyệt đối không dùng emoji màu sắc (như 🚀, 📈, 📊, ⚡, 🔑...). Emoji làm giao diện kém chuyên nghiệp và lòe loẹt.
+- **SỬ DỤNG STREAMLIT NATIVE MATERIAL ICONS (`:material/icon_name:`)**:
+  - Streamlit hỗ trợ sẵn bộ icon Google Material Symbols cao cấp qua cú pháp `:material/icon_name:`.
+  - Tiêu đề & Header: `st.title(":material/analytics: Dashboard Thống Kê")`
+  - Nút bấm: `st.button("Xuất Báo Cáo", icon=":material/download:")`
+  - Các tab & Sidebar: `st.tabs([":material/bar_chart: Biểu Đồ", ":material/table_view: Chi Tiết"])`
+  - Danh sách icon chuẩn: `:material/dashboard:`, `:material/analytics:`, `:material/trending_up:`, `:material/calendar_today:`, `:material/filter_alt:`, `:material/key:`, `:material/table_view:`, `:material/download:`, `:material/refresh:`.
 - **Phân bổ Typography & Size rõ ràng**:
   - `st.title()`: Chỉ dùng duy nhất 1 lần ở đầu trang chính.
   - `st.subheader()`: Dùng cho tiêu đề các khối/chức năng chính.

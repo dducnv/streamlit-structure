@@ -50,8 +50,9 @@ Người dùng CHỈ CẦN đưa ra ý tưởng/yêu cầu bằng ngôn ngữ t�
 4. **Không ngắt gãy ứng dụng**:
    - Khởi tạo tất cả `st.session_state` qua `src/utils/state_manager.py` để tránh lỗi `KeyError`.
    - Xử lý try-except khi đọc/ghi dữ liệu trong `src/services/`.
-5. **Chuẩn Thiết Kế Giao Diện (Professional UI & Typography Standards)**:
-   - **Hạn chế dùng emoji tràn lan**: KHÔNG gắn emoji bừa bãi ở mọi tiêu đề/thẻ. Chỉ dùng biểu tượng tinh tế khi thực sự cần thiết.
+5. **Chuẩn Thiết Kế Giao Diện (Executive UI & Material Icons Standards)**:
+   - **Nghiêm cấm dùng emoji màu sắc rườm rà**: KHÔNG dùng emoji màu (như 🚀, 📈, 📊, ⚡, 🔑...). Emoji khiến giao diện bị lộn xộn và kém sang.
+   - **Sử dụng Streamlit Native Material Icons (`:material/icon_name:`)**: Sử dụng bộ icon vector Google Material Symbols native của Streamlit (ví dụ: `:material/analytics:`, `:material/dashboard:`, `:material/trending_up:`, `:material/calendar_today:`, `:material/filter_alt:`, `:material/download:`).
    - **Phân bổ Typography rõ ràng**: Giữ font size và phân cấp tiêu đề mạch lạc (`st.title` -> `st.subheader` -> `st.caption`).
    - **Giao diện doanh nghiệp cao cấp (Executive Style)**: Bố cục gọn gàng, bố trí cột/khoảng cách đồng nhất bằng widget Streamlit native.
 
