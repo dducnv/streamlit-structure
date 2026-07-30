@@ -29,7 +29,9 @@ Người dùng CHỈ CẦN đưa ra ý tưởng/yêu cầu bằng ngôn ngữ t�
   4. Tự đăng ký biến state trong `src/utils/state_manager.py`.
   5. Tự kiểm tra cú pháp code (`py_compile`).
   6. Tự động ghi lại tóm tắt tính năng vào `contexts/features/feature_log.md`.
-  7. Trình bày hướng dẫn trải nghiệm 1-click cho người dùng.
+  7. **Trình bày hướng dẫn trải nghiệm 1-click**: Ở cuối phản hồi, AI đề xuất người dùng chạy script khởi động:
+     - 🍏 **Nếu dùng macOS / Linux**: Khuyên chạy `./run.sh` (hoặc `bash run.sh`).
+     - 🪟 **Nếu dùng Windows**: Khuyên chạy `run.bat`.
 
 ---
 
