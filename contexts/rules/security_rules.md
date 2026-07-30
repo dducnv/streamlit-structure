@@ -13,6 +13,7 @@ File này quy định các tiêu chuẩn bảo mật cho dự án Streamlit. M�
 - Mọi dữ liệu do người dùng nhập qua `st.text_input`, `st.file_uploader` hoặc `st.text_area` đều phải được kiểm tra (sanitized/validated) trước khi xử lý hoặc gửi tới external API.
 - Khi upload file trong `st.file_uploader`, chỉ cho phép các extension hợp lệ (ví dụ: `['csv', 'json', 'xlsx']`).
 
-## 3. Nhật ký & Lỗi (Error Handling & Privacy)
-- Không hiển thị nguyên văn lỗi traceback chi tiết (`traceback.format_exc()`) cho end-user trên giao diện Streamlit trừ khi đang ở chế độ Debug (`DEBUG_MODE=True`).
-- Dùng `st.error("Có lỗi xảy ra, vui lòng thử lại sau.")` cho giao diện người dùng và print lỗi chi tiết ra console server.
+## 4. Xử Lý HTTP Request & SSL Safety
+- **Ưu tiên thư viện `requests`**: Khi gọi các external HTTP/HTTPS API, AI phải ưu tiên sử dụng thư viện `requests` (đã nạp trong `requirements.txt`) thay vì `urllib.request` để tránh lỗi chứng chỉ SSL (`SSL: CERTIFICATE_VERIFY_FAILED`) thường gặp trên hệ điều hành macOS.
+- **Xử lý timeout & headers**: Tất cả các request đều phải thiết lập `timeout` (ví dụ: `timeout=10`) và truyền Header `Content-Type: application/json` và `Authorization: Bearer <TOKEN>` khi có xác thực.
+
