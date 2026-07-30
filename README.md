@@ -84,10 +84,9 @@ Với Starter Kit này, **bạn KHÔNG CẦN biết viết code hay chỉnh sử
 
 ### 💡 Bạn chỉ cần nói với AI ý tưởng theo ngôn ngữ tự nhiên:
 
-> 🌟 **Cơ chế Ghi Đè Context Ban Đầu (Auto-Replace Template)**:
-> - File `contexts/features/project_overview.md` ban đầu chỉ là **Khung Mẫu Trống (Template)**.
-> - Ở lần đầu tiên bạn prompt ý tưởng, AI sẽ **tự động GHI ĐÈ THAY THẾ (OVERWRITE)** toàn bộ nội dung file này bằng thông tin dự án thực tế của bạn (từ câu trả lời phỏng vấn hoặc từ mô tả của bạn).
-> - **Riêng về API**: AI hỏi *"Có cần kết nối API bên thứ 3 nào không?"*. Nếu **Không** $\rightarrow$ Dừng câu hỏi API và làm ngay. Nếu **Có** $\rightarrow$ AI hỏi thêm cần Key xác thực nào để hướng dẫn lưu an toàn vào `config/.env`.
+> 🌟 **Cơ chế Ghi Đè Context & Xử Lý API Tự Động (Auto-Probing & Replacement)**:
+> - File `contexts/features/project_overview.md` ban đầu là **Khung Mẫu Trống (Template)**. Khi bạn đưa prompt, AI sẽ **tự động GHI ĐÈ THAY THẾ (OVERWRITE)** bằng thông tin dự án thực tế của bạn.
+> - **Đối với API URL**: AI sẽ **không bắt bạn trả lời câu hỏi lằng nhằng**. AI tự thử nghiệm kết nối API và viết ngay Service thông minh hỗ trợ cả chế độ Public & Auth Key (cho phép cấu hình qua `config/.env` hoặc Sidebar), giúp bạn xem ngay kết quả trên ứng dụng!
 
 #### 1. Mẫu Prompt Thêm Tính Năng Mới:
 > *"Tôi muốn vẽ một biểu đồ doanh thu kết nối với API OpenAI để tự động đọc xu hướng. Hãy tự làm tất cả giúp tôi nhé!"*

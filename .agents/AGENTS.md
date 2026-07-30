@@ -72,8 +72,10 @@ Khi dự án mới bắt đầu (hoặc file `contexts/features/project_overview
    - Khi người dùng trả lời, AI **tự động tổng hợp và GHI ĐÈ thông tin vào `contexts/features/project_overview.md`**, rồi mới bắt đầu tạo mã nguồn!
 
 2. **Nếu người dùng mô tả cụ thể ngay từ đầu** (Ví dụ: *"Tạo cho tôi tool viết caption Facebook AIDA"* hoặc *"Tạo dashboard kết nối 2 API Supabase URL..."*):
-   - AI sẽ **tự động trích xuất ngữ cảnh** từ prompt.
-   - ⚠️ **LƯU Ý VỀ API URL**: Nếu prompt chứa các đường dẫn API URL (như Supabase Edge Functions, REST API...), AI **BẮT BUỘC PHẢI HỎI HOẶC XÁC NHẬN VỚI NGƯỜI DÙNG**:
-     - *"Đường dẫn API này là Public (truy cập tự do) hay cần có API Key / Bearer Token / Supabase Anon Key để xác thực? Nếu cần Key, hãy cho tôi biết tên Key để tôi hướng dẫn lưu an toàn vào `config/.env` nhé!"*
+   - AI sẽ **tự động trích xuất ngữ cảnh**.
+   - ⚠️ **LƯU Ý VỀ API URL**: Nếu prompt chứa các đường dẫn API URL (như Supabase Edge Functions, REST API...):
+     - AI **BẮT BUỘC KHÔNG NÊN DỪNG LẠI ĐỂ HỎI CÂU HỎI VĂN BẢN TRUYỀN THỐNG**.
+     - AI phải **TỰ ĐỘNG THỬ NGHIỆM KẾT NỐI API (PROBE/TEST API)** hoặc **VIẾT NGAI SERVICE THÔNG MINH HỖ TRỢ CẢ 2 CHẾ ĐỘ (PUBLIC & AUTH KEY)**.
+     - Service tự động đọc Key từ `config/.env` hoặc cho phép điền trên Sidebar, đồng thời có chế độ fallback an toàn nếu chưa có Key.
    - **Tự động GHI ĐÈ file `contexts/features/project_overview.md`** với thông tin dự án mới.
-   - Tiến hành tạo các UI Component và Service tương ứng!
+   - Tiến hành tạo ngay các UI Component và Service tương ứng!
