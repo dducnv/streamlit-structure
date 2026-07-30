@@ -48,6 +48,10 @@ Người dùng CHỈ CẦN đưa ra ý tưởng/yêu cầu bằng ngôn ngữ t�
 4. **Không ngắt gãy ứng dụng**:
    - Khởi tạo tất cả `st.session_state` qua `src/utils/state_manager.py` để tránh lỗi `KeyError`.
    - Xử lý try-except khi đọc/ghi dữ liệu trong `src/services/`.
+5. **Chuẩn Thiết Kế Giao Diện (Professional UI & Typography Standards)**:
+   - **Hạn chế dùng emoji tràn lan**: KHÔNG gắn emoji bừa bãi ở mọi tiêu đề/thẻ. Chỉ dùng biểu tượng tinh tế khi thực sự cần thiết.
+   - **Phân bổ Typography rõ ràng**: Giữ font size và phân cấp tiêu đề mạch lạc (`st.title` -> `st.subheader` -> `st.caption`).
+   - **Giao diện doanh nghiệp cao cấp (Executive Style)**: Bố cục gọn gàng, bố trí cột/khoảng cách đồng nhất bằng widget Streamlit native.
 
 ---
 
@@ -67,7 +71,9 @@ Khi dự án mới bắt đầu (hoặc file `contexts/features/project_overview
        - **Nếu CÓ**: Hỏi tiếp: *"Ứng dụng cần xác thực API Key gì và bạn muốn điền Key trong file `config/.env` hay nhập trực tiếp trên giao diện?"*
    - Khi người dùng trả lời, AI **tự động tổng hợp và GHI ĐÈ thông tin vào `contexts/features/project_overview.md`**, rồi mới bắt đầu tạo mã nguồn!
 
-2. **Nếu người dùng mô tả cụ thể ngay từ đầu** (Ví dụ: *"Tạo cho tôi tool viết caption Facebook AIDA cho shop thời trang"*):
+2. **Nếu người dùng mô tả cụ thể ngay từ đầu** (Ví dụ: *"Tạo cho tôi tool viết caption Facebook AIDA"* hoặc *"Tạo dashboard kết nối 2 API Supabase URL..."*):
    - AI sẽ **tự động trích xuất ngữ cảnh** từ prompt.
+   - ⚠️ **LƯU Ý VỀ API URL**: Nếu prompt chứa các đường dẫn API URL (như Supabase Edge Functions, REST API...), AI **BẮT BUỘC PHẢI HỎI HOẶC XÁC NHẬN VỚI NGƯỜI DÙNG**:
+     - *"Đường dẫn API này là Public (truy cập tự do) hay cần có API Key / Bearer Token / Supabase Anon Key để xác thực? Nếu cần Key, hãy cho tôi biết tên Key để tôi hướng dẫn lưu an toàn vào `config/.env` nhé!"*
    - **Tự động GHI ĐÈ file `contexts/features/project_overview.md`** với thông tin dự án mới.
-   - Tiến hành tạo ngay các UI Component và Service tương ứng!
+   - Tiến hành tạo các UI Component và Service tương ứng!

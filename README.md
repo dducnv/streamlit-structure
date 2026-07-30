@@ -11,6 +11,7 @@ Khung dự án **Streamlit Modular Standard** tối ưu hóa đặc biệt cho *
 3. **Tiết Kiệm Token & Phòng Bỏ Quên Context (Context Evaporation Prevention)**: Cấu trúc chia nhỏ module (< 150 dòng/file) và hệ thống lưu trữ context động trong `contexts/features/` giúp AI nắm 100% ngữ cảnh dù trò chuyện bao lâu.
 4. **Chạy 1-Click & Tự Động Reload Tức Thì**: Hỗ trợ `run.sh` / `run.bat` và module `watchdog` tự làm mới trang web ngay khi lưu code.
 5. **Chuẩn Bảo Mật Cấu Hình (`config/`)**: Tự động load biến môi trường an toàn từ `.env` bằng `python-dotenv` hoặc `st.secrets` mà không lo lộ API Keys.
+6. **Thiết Kế UI Chuyên Nghiệp (Executive Professional UI)**: Hạn chế lạm dụng emoji rườm rà, phân bổ typography & font size chuẩn mực, mạch lạc theo tiêu chuẩn thiết kế giao diện doanh nghiệp cao cấp.
 
 ---
 

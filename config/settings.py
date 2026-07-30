@@ -35,10 +35,21 @@ def get_config(key: str, default: str = "") -> str:
 
 
 # Các hằng số cấu hình mặc định của ứng dụng
-APP_TITLE = get_config("APP_TITLE", "Streamlit Starter Kit")
-APP_ICON = get_config("APP_ICON", "🚀")
+APP_TITLE = get_config("APP_TITLE", "Dashboard Thống Kê UTM Marketing")
+APP_ICON = get_config("APP_ICON", "📊")
 ENVIRONMENT = get_config("ENVIRONMENT", "development")
 DEBUG_MODE = get_config("DEBUG_MODE", "True").lower() in ("true", "1", "yes")
 
+# API Endpoints
+KPI_STATS_API_URL = get_config(
+    "KPI_STATS_API_URL",
+    "https://etrziohfkpykyokxoglm.supabase.co/functions/v1/get-utm-mkt-kpi-stats"
+)
+CHART_DATA_API_URL = get_config(
+    "CHART_DATA_API_URL",
+    "https://etrziohfkpykyokxoglm.supabase.co/functions/v1/get-utm-mkt-chart-data"
+)
+
 # Thu mục lưu trữ Data
 DATA_DIR = BASE_DIR / "data"
+

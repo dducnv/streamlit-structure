@@ -4,12 +4,21 @@ from typing import Any
 
 def init_session_state(defaults: dict = None) -> None:
     """Khởi tạo các biến Session State an toàn để tránh lỗi KeyError"""
-    if defaults is None:
-        defaults = {"initialized": True}
+    initial_defaults = {
+        "initialized": True,
+        "start_date": None,
+        "end_date": None,
+        "kpi_data": None,
+        "chart_data": None,
+        "is_loading": False
+    }
+    if defaults:
+        initial_defaults.update(defaults)
 
-    for key, value in defaults.items():
+    for key, value in initial_defaults.items():
         if key not in st.session_state:
             st.session_state[key] = value
+
 
 
 def get_state(key: str, default_val: Any = None) -> Any:

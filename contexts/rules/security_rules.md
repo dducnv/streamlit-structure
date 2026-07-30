@@ -7,6 +7,7 @@ File này quy định các tiêu chuẩn bảo mật cho dự án Streamlit. M�
 - **File `.env`**: Tất cả biến môi trường phải đặt trong file `config/.env` (hoặc `.env` ở root). File này ĐÃ ĐƯỢC THÊM VÀO `.gitignore` và không bao giờ commit lên Git.
 - **File mẫu `.env.example`**: Luôn duy trì file `config/.env.example` chứa tên các biến môi trường mà không chứa giá trị thực (chỉ chứa placeholder như `YOUR_API_KEY_HERE`).
 - **Streamlit Secrets (`.streamlit/secrets.toml`)**: Khi deploy lên Streamlit Community Cloud, sử dụng `st.secrets` để đọc các cấu hình này.
+- **Xác thực API URL**: Khi người dùng cung cấp đường dẫn API URL (REST API, Supabase Edge Functions...), AI bắt buộc phải chủ động xác nhận phương thức xác thực (Bearer Token, Supabase Anon Key, Custom Headers) trước khi phát triển service.
 
 ## 2. Kiểm tra dữ liệu đầu vào (Input Validation)
 - Mọi dữ liệu do người dùng nhập qua `st.text_input`, `st.file_uploader` hoặc `st.text_area` đều phải được kiểm tra (sanitized/validated) trước khi xử lý hoặc gửi tới external API.
