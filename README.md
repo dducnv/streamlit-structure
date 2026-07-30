@@ -82,9 +82,12 @@ Nhấp đúp chuột vào file **`run.bat`** (hoặc gõ `run.bat` trong CMD/Pow
 
 Với Starter Kit này, **bạn KHÔNG CẦN biết viết code hay chỉnh sửa file thủ công**. AI Assistant sẽ tự động đóng vai trò là một Senior Developer chịu trách nhiệm toàn bộ mặt kỹ thuật.
 
-### 💡 Bạn chỉ cần nói với AI ý tưởng theo ngôn ngữ tự nhiên (KHÔNG CẦN đính kèm hay kéo thả file):
+### 💡 Bạn chỉ cần nói với AI ý tưởng theo ngôn ngữ tự nhiên:
 
-> 🌟 **Lưu ý**: Bạn không cần gắn link hay kéo thả bất kỳ file nào! AI được lập trình để **tự động tìm và đọc toàn bộ quy tắc, key bảo mật và bộ nhớ dự án** trước khi làm việc.
+> 🌟 **Cơ chế Phỏng vấn Khởi tạo Context Tự động**:
+> - Nếu bạn đưa ý tưởng chung chung (ví dụ: *"Tôi muốn làm tool Marketing"*), **AI sẽ tự động đặt 3-4 câu hỏi phỏng vấn gợi mở** ngắn gọn để hiểu đúng nhu cầu (Tên tool, đối tượng dùng, tính năng chính).
+> - **Riêng về API**: AI hỏi *"Có cần kết nối API bên thứ 3 nào không?"*. Nếu **Không** $\rightarrow$ Dừng câu hỏi API và làm ngay. Nếu **Có** $\rightarrow$ AI hỏi thêm cần Key xác thực nào để hướng dẫn lưu an toàn vào `config/.env`.
+> - Nếu bạn mô tả chi tiết ngay từ đầu, AI sẽ **tự trích xuất ngữ cảnh, lưu file context và bắt đầu tạo code ngay** mà không bắt bạn trả lời câu hỏi phụ!
 
 #### 1. Mẫu Prompt Thêm Tính Năng Mới:
 > *"Tôi muốn vẽ một biểu đồ doanh thu kết nối với API OpenAI để tự động đọc xu hướng. Hãy tự làm tất cả giúp tôi nhé!"*

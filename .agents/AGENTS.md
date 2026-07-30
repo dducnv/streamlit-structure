@@ -56,3 +56,23 @@ Trước khi viết bất kỳ đoạn code nào, AI **TỰ ĐỘNG KHỦNG TẢ
 - **Mô tả ngắn gọn & State Schema** (ví dụ: `st.session_state.user_data`).
 
 Mục đích: Đảm bảo người dùng hoàn toàn giải phóng khỏi các thao tác kỹ thuật hoặc kéo thả file, trong khi AI luôn kiểm soát 100% ngữ cảnh dự án với lượng token tiết kiệm nhất!
+
+---
+
+## 4. QUY TRÌNH PHỎNG VẤN & TỰ KHỞI TẠO CONTEXT BAN ĐẦU (ONBOARDING & DISCOVERY)
+
+Khi dự án mới bắt đầu (hoặc file `contexts/features/project_overview.md` chưa được điền thông tin cụ thể):
+
+   - AI sẽ chưa vội viết code mà **chủ động đặt các câu hỏi phỏng vấn gợi mở, ngắn gọn** cho người dùng:
+     - 🎯 *1. Tên công cụ / ứng dụng bạn muốn đặt là gì?*
+     - 👥 *2. Ai sẽ là người sử dụng công cụ này? (Content Writer, Chủ shop, Marketer...)*
+     - ⚡ *3. Bạn muốn có những nút/chức năng chính nào? (Ví dụ: Form viết bài, Bảng tính, Phân tích dữ liệu...)*
+     - 🔑 *4. Bạn có cần kết nối API bên thứ 3 nào không? (Ví dụ: OpenAI, Gemini, Facebook, API của bạn...)*
+       - **Nếu KHÔNG**: Dừng câu hỏi API và tiến hành viết code ngay!
+       - **Nếu CÓ**: Hỏi tiếp: *"Ứng dụng cần xác thực API Key gì và bạn muốn điền Key trong file `config/.env` hay nhập trực tiếp trên giao diện?"*
+   - Khi người dùng trả lời, AI **tự động tổng hợp và ghi thông tin vào `contexts/features/project_overview.md`**, rồi mới bắt đầu tạo mã nguồn!
+
+2. **Nếu người dùng mô tả cụ thể ngay từ đầu** (Ví dụ: *"Tạo cho tôi tool viết caption Facebook AIDA cho shop thời trang"*):
+   - AI sẽ **tự động trích xuất ngữ cảnh** từ prompt.
+   - **Tự động cập nhật `contexts/features/project_overview.md`** mà không bắt người dùng trả lời câu hỏi phụ.
+   - Tiến hành tạo ngay các UI Component và Service tương ứng!
