@@ -53,6 +53,7 @@ Người dùng CHỈ CẦN đưa ra ý tưởng/yêu cầu bằng ngôn ngữ t�
 5. **Chuẩn Thiết Kế Giao Diện (Executive UI & Material Icons Standards)**:
    - **Nghiêm cấm dùng emoji màu sắc rườm rà**: KHÔNG dùng emoji màu (như 🚀, 📈, 📊, ⚡, 🔑...). Emoji khiến giao diện bị lộn xộn và kém sang.
    - **Sử dụng Streamlit Native Material Icons (`:material/icon_name:`)**: Sử dụng bộ icon vector Google Material Symbols native của Streamlit (ví dụ: `:material/analytics:`, `:material/dashboard:`, `:material/trending_up:`, `:material/calendar_today:`, `:material/filter_alt:`, `:material/download:`).
+   - **Chỉ định tham số Biểu đồ rõ ràng**: Khi sử dụng `st.line_chart` hoặc `st.bar_chart` với DataFrame từ API, BẮT BUỘC truyền rõ tên cột trục x (ví dụ: `x="date"`) và tên cột trục y (ví dụ: `y=["clicks", "installs"]`) để tránh lỗi `StreamlitAPIException: mixed types`.
    - **Phân bổ Typography rõ ràng**: Giữ font size và phân cấp tiêu đề mạch lạc (`st.title` -> `st.subheader` -> `st.caption`).
    - **Giao diện doanh nghiệp cao cấp (Executive Style)**: Bố cục gọn gàng, bố trí cột/khoảng cách đồng nhất bằng widget Streamlit native.
 
