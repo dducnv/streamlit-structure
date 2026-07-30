@@ -4,14 +4,13 @@ Khung dự án **Streamlit Modular Standard** tối ưu hóa đặc biệt cho *
 
 ---
 
-## ✨ CÁC ĐIỂM NỔI BẬT CỦA STARTER KIT
+## ✨ CÁC ĐIỂM NỔI BẬT CỦA STARTER KIT (TÍCH HỢP MÔ HÌNH CCPM)
 
 1. **Thuần Streamlit (100% Pure Streamlit)**: Toàn bộ giao diện, nút bấm, bảng dữ liệu, biểu đồ được tạo lập hoàn toàn bằng Python/Streamlit widget native.
-2. **Tiết Kiệm Token Tối Đa (Token Efficiency)**: Cấu trúc chia nhỏ module (< 150 dòng/file) giúp AI chỉ cần đọc đúng file cần sửa thay vì tải toàn bộ mã nguồn.
-3. **Hệ Thống Context Tự Động (`contexts/`)**:
-   - `contexts/rules/`: Chứa các quy định bảo mật, coding standards và sơ đồ thư mục cố định.
-   - `contexts/features/`: Chứa tổng quan dự án và **nhật ký tính năng động (`feature_log.md`)**. Mỗi lần AI code xong 1 tính năng, AI tự động thêm tóm tắt vào đây.
-4. **Chuẩn Bảo Mật Cấu Hình (`config/`)**: Tự động load biến môi trường an toàn từ `.env` bằng `python-dotenv` hoặc `st.secrets` mà không lo lộ API Keys.
+2. **Mô Hình CCPM Dual-Persona (Project Manager + Technical Developer)**: AI đóng vai trò PM hỗ trợ phỏng vấn khởi tạo dự án và ghi nhận spec, sau đó đóng vai Dev tự động tạo mã nguồn gọn gàng.
+3. **Tiết Kiệm Token & Phòng Bỏ Quên Context (Context Evaporation Prevention)**: Cấu trúc chia nhỏ module (< 150 dòng/file) và hệ thống lưu trữ context động trong `contexts/features/` giúp AI nắm 100% ngữ cảnh dù trò chuyện bao lâu.
+4. **Chạy 1-Click & Tự Động Reload Tức Thì**: Hỗ trợ `run.sh` / `run.bat` và module `watchdog` tự làm mới trang web ngay khi lưu code.
+5. **Chuẩn Bảo Mật Cấu Hình (`config/`)**: Tự động load biến môi trường an toàn từ `.env` bằng `python-dotenv` hoặc `st.secrets` mà không lo lộ API Keys.
 
 ---
 
@@ -84,10 +83,10 @@ Với Starter Kit này, **bạn KHÔNG CẦN biết viết code hay chỉnh sử
 
 ### 💡 Bạn chỉ cần nói với AI ý tưởng theo ngôn ngữ tự nhiên:
 
-> 🌟 **Cơ chế Phỏng vấn Khởi tạo Context Tự động**:
-> - Nếu bạn đưa ý tưởng chung chung (ví dụ: *"Tôi muốn làm tool Marketing"*), **AI sẽ tự động đặt 3-4 câu hỏi phỏng vấn gợi mở** ngắn gọn để hiểu đúng nhu cầu (Tên tool, đối tượng dùng, tính năng chính).
+> 🌟 **Cơ chế Ghi Đè Context Ban Đầu (Auto-Replace Template)**:
+> - File `contexts/features/project_overview.md` ban đầu chỉ là **Khung Mẫu Trống (Template)**.
+> - Ở lần đầu tiên bạn prompt ý tưởng, AI sẽ **tự động GHI ĐÈ THAY THẾ (OVERWRITE)** toàn bộ nội dung file này bằng thông tin dự án thực tế của bạn (từ câu trả lời phỏng vấn hoặc từ mô tả của bạn).
 > - **Riêng về API**: AI hỏi *"Có cần kết nối API bên thứ 3 nào không?"*. Nếu **Không** $\rightarrow$ Dừng câu hỏi API và làm ngay. Nếu **Có** $\rightarrow$ AI hỏi thêm cần Key xác thực nào để hướng dẫn lưu an toàn vào `config/.env`.
-> - Nếu bạn mô tả chi tiết ngay từ đầu, AI sẽ **tự trích xuất ngữ cảnh, lưu file context và bắt đầu tạo code ngay** mà không bắt bạn trả lời câu hỏi phụ!
 
 #### 1. Mẫu Prompt Thêm Tính Năng Mới:
 > *"Tôi muốn vẽ một biểu đồ doanh thu kết nối với API OpenAI để tự động đọc xu hướng. Hãy tự làm tất cả giúp tôi nhé!"*
