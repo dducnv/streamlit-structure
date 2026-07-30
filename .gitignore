@@ -1,1 +1,24 @@
-./env/*
+# Environment files & Secrets
+*.env
+.env
+.env.*
+config/.env
+!.env.example
+!config/.env.example
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Python cache & virtual environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+.pytest_cache/
+
+# OS specific files
+.DS_Store
+Thumbs.db
