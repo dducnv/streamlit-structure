@@ -78,6 +78,8 @@ Khi dự án mới bắt đầu (hoặc file `contexts/features/project_overview
    - ⚠️ **LƯU Ý VỀ API URL**: Nếu prompt chứa các đường dẫn API URL (như Supabase Edge Functions, REST API...):
      - AI **BẮT BUỘC KHÔNG NÊN DỪNG LẠI ĐỂ HỎI CÂU HỎI VĂN BẢN TRUYỀN THỐNG**.
      - AI phải **TỰ ĐỘNG THỬ NGHIỆM KẾT NỐI API (PROBE/TEST API)** hoặc **VIẾT NGAI SERVICE THÔNG MINH HỖ TRỢ CẢ 2 CHẾ ĐỘ (PUBLIC & AUTH KEY)**.
+     - **QUY TẮC THAM SỐ API (ONE-SHOT DATA)**: Khi gọi API (đặc biệt là POST API thống kê), AI BẮT BUỘC KHÔNG gửi payload JSON rỗng `{}`. Phải tự động truyền các tham số mặc định hợp lý (như `start_date`, `end_date`, `limit`) để API trả về dữ liệu thật ngay từ lần đầu!
+     - **SỬ DỤNG LỚP KẾT NỐI AN TOÀN**: Luôn dùng thư viện `requests` thay vì `urllib` để tránh lỗi SSL Certificate Verify trên macOS.
      - Service tự động đọc Key từ `config/.env` hoặc cho phép điền trên Sidebar, đồng thời có chế độ fallback an toàn nếu chưa có Key. Trong UI Streamlit, nếu thiếu Key thì dùng `st.warning(...)` hoặc `st.error(...)` màu sắc nổi bật để gây sự chú ý ngay.
      - **HƯỚNG DẪN Ở CỦA CÂU CHAT**: Sau khi dựng xong ứng dụng, nếu API cần Key xác thực mà chưa có trong `.env`, AI ghi **CẢNH BÁO NỔI BẬT ⚠️** ở cuối câu trả lời:
        > ⚠️ **LƯU Ý CẦN ĐIỀN API KEY**: Tôi đã dựng xong 100% ứng dụng! Nếu API của bạn yêu cầu Auth Key, bạn chỉ cần mở file `config/.env` điền `API_KEY=...` (hoặc nhập trên Sidebar) là dữ liệu thật sẽ được hiển thị ngay lập tức nhé!
