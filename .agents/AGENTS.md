@@ -77,5 +77,6 @@ Khi dự án mới bắt đầu (hoặc file `contexts/features/project_overview
      - AI **BẮT BUỘC KHÔNG NÊN DỪNG LẠI ĐỂ HỎI CÂU HỎI VĂN BẢN TRUYỀN THỐNG**.
      - AI phải **TỰ ĐỘNG THỬ NGHIỆM KẾT NỐI API (PROBE/TEST API)** hoặc **VIẾT NGAI SERVICE THÔNG MINH HỖ TRỢ CẢ 2 CHẾ ĐỘ (PUBLIC & AUTH KEY)**.
      - Service tự động đọc Key từ `config/.env` hoặc cho phép điền trên Sidebar, đồng thời có chế độ fallback an toàn nếu chưa có Key.
+     - **HƯỚNG DẪN Ở CỦA CÂU CHAT**: Sau khi dựng xong ứng dụng, nếu API cần Key xác thực mà chưa có trong `.env`, AI ghi ngắn gọn ở cuối câu trả lời: *"💡 **Lưu ý**: Tôi đã dựng xong 100% ứng dụng! Nếu API của bạn yêu cầu Auth Key, bạn chỉ cần mở file `config/.env` điền `API_KEY=...` (hoặc nhập trên Sidebar) là dữ liệu thật sẽ được hiển thị ngay lập tức nhé!"*
    - **Tự động GHI ĐÈ file `contexts/features/project_overview.md`** với thông tin dự án mới.
    - Tiến hành tạo ngay các UI Component và Service tương ứng!
