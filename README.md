@@ -91,10 +91,13 @@ Với Starter Kit này, **bạn KHÔNG CẦN biết viết code hay chỉnh sử
 #### 1. Mẫu Prompt Thêm Tính Năng Mới:
 > *"Tôi muốn vẽ một biểu đồ doanh thu kết nối với API OpenAI để tự động đọc xu hướng. Hãy tự làm tất cả giúp tôi nhé!"*
 
-#### 2. Mẫu Prompt Chỉnh Sửa / Nâng Cấp:
-> *"Hãy thêm nút xuất file PDF cho báo cáo chiến dịch và cho phép chọn màu giao diện."*
+#### 2. Mẫu Prompt Thiết Kế UI Đẹp Chuẩn Doanh Nghiệp (Streamlit Executive Style):
+> *"Hãy làm lại giao diện trang này theo chuẩn Executive UI: dùng icon `:material/analytics:` và `:material/bar_chart:`, dùng `st.segmented_control` thay cho radio button, dùng `st.container(border=True)` đóng khung thẻ KPI sạch sẽ, không dùng emoji màu lộn xộn."*
 
-#### 3. Mẫu Prompt Sửa Lỗi (Nếu có):
+#### 3. Mẫu Prompt Chỉnh Sửa / Nâng Cấp:
+> *"Hãy thêm nút xuất file Excel cho báo cáo chiến dịch và bổ sung bộ lọc khoảng thời gian tại Sidebar."*
+
+#### 4. Mẫu Prompt Sửa Lỗi (Nếu có):
 > *"Ứng dụng báo lỗi khi tôi bấm nút Lưu dữ liệu, hãy kiểm tra và sửa lại giúp tôi."*
 
 ---
