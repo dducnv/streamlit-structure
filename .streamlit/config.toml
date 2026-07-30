@@ -1,0 +1,14 @@
+[server]
+# Tự động reload ứng dụng ngay khi bất kỳ file code nào trong src/ hoặc root được lưu
+runOnSave = true
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#FF4B4B"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#31333F"
+font = "sans serif"

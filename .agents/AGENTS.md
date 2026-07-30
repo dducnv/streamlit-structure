@@ -40,15 +40,19 @@ Người dùng CHỈ CẦN đưa ra ý tưởng/yêu cầu bằng ngôn ngữ t�
 
 ## 3. QUY TRÌNH QUẢN LÝ CONTEXT TỰ ĐỘNG
 
-Trước khi viết code, AI CẦN:
-1. Tự đọc quy chuẩn tại `contexts/rules/security_rules.md` và `contexts/rules/coding_standards.md`.
-2. Kiểm tra sơ đồ vị trí file tại `contexts/rules/architecture_map.md`.
-3. Kiểm tra tính năng hiện tại trong `contexts/features/feature_log.md`.
+**AI CHỦ ĐỘNG ĐỌC CONTEXT (NGƯỜI DÙNG KHÔNG CẦN KÉO/TAG FILE)**:
+Trước khi viết bất kỳ đoạn code nào, AI **TỰ ĐỘNG KHỦNG TẢI & ĐỌC HẾT CONTEXT**:
+1. Đọc quy chuẩn an toàn & bảo mật tại `contexts/rules/security_rules.md` và `contexts/rules/coding_standards.md`.
+2. Đọc sơ đồ vị trí file tại `contexts/rules/architecture_map.md`.
+3. Đọc nhật ký tính năng & state schema hiện tại tại `contexts/features/feature_log.md`.
+4. Đọc dàn ý tổng quan dự án tại `contexts/features/project_overview.md`.
+
+👉 **Dù người dùng chỉ prompt 1 câu rất ngắn** (ví dụ: *"Thêm biểu đồ doanh thu dùng API OpenAI"*), AI tự động nạp tất cả các file context trên, tự tìm API key trong `config/settings.py` / `.env`, tự viết code và kiểm tra.
 
 **SAU KHI THÊM/SỬA BẤT KỲ TÍNH NĂNG NÀO**:
-👉 AI **BẮT BUỘC** tự động cập nhật nhật ký tính năng vào file `contexts/features/feature_log.md` theo định dạng:
+👉 AI **BẮT BUỘC** tự động ghi nhận nhật ký tính năng vào file `contexts/features/feature_log.md` theo định dạng:
 - **Tên tính năng mới / chỉnh sửa**.
 - **File đã thay đổi** (ví dụ: `src/components/widgets.py`).
 - **Mô tả ngắn gọn & State Schema** (ví dụ: `st.session_state.user_data`).
 
-Mục đích: Đảm bảo các lượt prompt tiếp theo của người dùng (dù rất ngắn như "sửa lại cái nút") AI vẫn nắm 100% ngữ cảnh dự án mà tốn cực kỳ ít token!
+Mục đích: Đảm bảo người dùng hoàn toàn giải phóng khỏi các thao tác kỹ thuật hoặc kéo thả file, trong khi AI luôn kiểm soát 100% ngữ cảnh dự án với lượng token tiết kiệm nhất!

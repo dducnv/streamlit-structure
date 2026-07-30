@@ -5,17 +5,15 @@ File này lưu trữ thông tin tóm tắt của tất cả các tính năng đ�
 
 ---
 
-## [2026-07-30] Khởi Tạo Cấu Trúc Khung Ứng Dụng (Base Starter Kit Framework)
+## [2026-07-30] Khởi Tạo Khung Dự Án Trống (Blank Starter Kit Framework)
 
-- **Mục tiêu**: Thiết lập cấu trúc dự án Streamlit modular chuẩn Pythonic cho Marketer & Non-coders.
-- **Các file liên quan**:
-  - [app.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/app.py): Entry point điều hướng giao diện chính.
+- **Mục tiêu**: Khởi tạo khung dự án Streamlit siêu tinh gọn, sẵn sàng đón nhận yêu cầu phát triển công cụ từ phía người dùng.
+- **Các file cơ bản**:
+  - [app.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/app.py): Entry point điều hướng chính (<20 dòng code).
   - [config/settings.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/config/settings.py): Cấu hình môi trường & load `.env`.
-  - [src/utils/state_manager.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/src/utils/state_manager.py): Quản lý `st.session_state` tập trung.
-  - [src/services/data_service.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/src/services/data_service.py): Đọc & lưu trữ dữ liệu JSON từ folder `data/`.
-  - [src/components/header.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/src/components/header.py): Banner, Header & Sidebar Navigation.
-  - [src/components/widgets.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/src/components/widgets.py): Reusable UI Widgets (Metrics cards, Form demo, Data table).
+  - [src/utils/state_manager.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/src/utils/state_manager.py): Khởi tạo và quản lý `st.session_state` an toàn.
+  - [src/services/data_service.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/src/services/data_service.py): Helper đọc/ghi file JSON/CSV dùng chung trong `data/`.
+  - [src/components/header.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/src/components/header.py): Header & Banner giao diện đơn giản.
+  - [src/components/widgets.py](file:///Users/ducnv/Documents/Projects/streamlit-structure/src/components/widgets.py): Màn hình chào mừng ban đầu.
 - **Session State Schema**:
-  - `st.session_state.initialized`: Boolean (Trạng thái khởi tạo app).
-  - `st.session_state.app_mode`: String (`"Demo Dashboard"` hoặc `"Thêm Dữ Liệu"`).
-  - `st.session_state.data_records`: List[Dict] (Danh sách bản ghi dữ liệu mẫu).
+  - `st.session_state.initialized`: Boolean (Trạng thái khởi tạo).

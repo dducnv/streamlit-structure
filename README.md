@@ -52,65 +52,29 @@ streamlit-structure/
 
 ---
 
-## 🛠️ HƯỚNG DẪN CÀI ĐẶT & CHẠY ỨNG DỤNG
+## ⚡ CHẠY ỨNG DỤNG BẰNG 1-CLICK (KHÔNG CẦN GÕ LỆNH TERMINAL)
+
+Dành cho người không chuyên kỹ thuật: **Bạn không cần gõ bất kỳ câu lệnh phức tạp nào!**
+
+### 🍏 Đối với MacOS / Linux:
+Mở Terminal tại thư mục dự án và gõ duy nhất 1 dòng:
+```bash
+./run.sh
+```
+*(Script sẽ tự động cài venv, cài thư viện và bật ứng dụng trên trình duyệt giúp bạn).*
+
+### 🪟 Đối với Windows:
+Nhấp đúp chuột vào file **`run.bat`** (hoặc gõ `run.bat` trong CMD/PowerShell).
+
+---
+
+## 🛠️ HƯỚNG DẪN CHI TIẾT (DÀNH CHO ĐỒNG BỘ NẾU CẦN KIỂM TRA)
 
 ### Bước 0: Kiểm tra & Cài đặt Python (Dành cho người mới)
 
 1. **Kiểm tra xem máy tính đã cài Python chưa**:
-   Mở Terminal (MacOS/Linux) hoặc Command Prompt / PowerShell (Windows) và chạy lệnh:
-   ```bash
-   python3 --version
-   # Hoặc trên Windows:
-   python --version
-   ```
-   - **Đã có Python**: Nếu kết quả hiển thị `Python 3.9.x`, `Python 3.10.x` hoặc cao hơn $\rightarrow$ Máy bạn đã sẵn sàng, chuyển sang **Bước 1**.
-   - **Chưa có Python**: Nếu báo lỗi `command not found` hoặc `python is not recognized` $\rightarrow$ Tiến hành cài đặt theo bước dưới đây.
-
-2. **Cách cài đặt Python (Phiên bản khuyến nghị: Python 3.10+)**:
-   - **Trang chủ chính thức**: Truy cập [python.org/downloads](https://www.python.org/downloads/) và tải bộ cài đặt tương ứng với hệ điều hành của bạn.
-   - ⚠️ **LƯU Ý CỰC KỲ QUAN TRỌNG VỚI WINDOWS**: Khi chạy file cài đặt `.exe`, **bắt buộc TÍCH CHỌN ô `Add python.exe to PATH`** ở dưới cùng trước khi bấm *Install Now*.
-   - **Dành cho MacOS (qua Homebrew - tùy chọn)**:
-     ```bash
-     brew install python
-     ```
-
----
-
-### Bước 1: Tạo môi trường ảo & Cài đặt thư viện
-Mở Terminal tại thư mục dự án và chạy các lệnh sau:
-
-```bash
-# 1. Tạo virtual environment
-python3 -m venv .venv
-
-# 2. Kích hoạt môi trường ảo
-# Trên MacOS/Linux:
-source .venv/bin/activate
-# Trên Windows:
-# .venv\Scripts\activate
-
-# 3. Cài đặt các thư viện phụ thuộc
-pip install -r requirements.txt
-```
-
-### Bước 2: Thiết lập file môi trường `.env`
-Chép mẫu cấu hình môi trường từ `config/.env.example`:
-```bash
-cp config/.env.example config/.env
-```
-
-### Bước 3: Chạy ứng dụng Streamlit
-```bash
-# Cách 1: Chạy trực tiếp qua Python của .venv (Khuyên dùng, không lo lỗi command not found)
-.venv/bin/python -m streamlit run app.py
-
-# Trên Windows:
-# .venv\Scripts\python -m streamlit run app.py
-
-# Cách 2: Nếu đã kích hoạt venv bằng lệnh `source .venv/bin/activate`:
-streamlit run app.py
-```
-Trình duyệt sẽ tự động mở trang web demo tại địa chỉ: `http://localhost:8501`.
+   - Nếu chưa có Python: Tải tại [python.org/downloads](https://www.python.org/downloads/).
+   - ⚠️ **LƯU Ý VỚI WINDOWS**: Nhớ tích chọn **`Add python.exe to PATH`** khi cài đặt.
 
 ---
 
@@ -118,10 +82,12 @@ Trình duyệt sẽ tự động mở trang web demo tại địa chỉ: `http:/
 
 Với Starter Kit này, **bạn KHÔNG CẦN biết viết code hay chỉnh sửa file thủ công**. AI Assistant sẽ tự động đóng vai trò là một Senior Developer chịu trách nhiệm toàn bộ mặt kỹ thuật.
 
-### 💡 Bạn chỉ cần nói với AI ý tưởng theo ngôn ngữ tự nhiên:
+### 💡 Bạn chỉ cần nói với AI ý tưởng theo ngôn ngữ tự nhiên (KHÔNG CẦN đính kèm hay kéo thả file):
+
+> 🌟 **Lưu ý**: Bạn không cần gắn link hay kéo thả bất kỳ file nào! AI được lập trình để **tự động tìm và đọc toàn bộ quy tắc, key bảo mật và bộ nhớ dự án** trước khi làm việc.
 
 #### 1. Mẫu Prompt Thêm Tính Năng Mới:
-> *"Tôi muốn tạo một công cụ viết caption Facebook tự động theo công thức AIDA. Hãy tự làm tất cả giúp tôi nhé!"*
+> *"Tôi muốn vẽ một biểu đồ doanh thu kết nối với API OpenAI để tự động đọc xu hướng. Hãy tự làm tất cả giúp tôi nhé!"*
 
 #### 2. Mẫu Prompt Chỉnh Sửa / Nâng Cấp:
 > *"Hãy thêm nút xuất file PDF cho báo cáo chiến dịch và cho phép chọn màu giao diện."*
