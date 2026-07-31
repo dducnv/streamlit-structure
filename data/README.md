@@ -6,6 +6,7 @@ Thư mục này dùng để lưu trữ dữ liệu tĩnh hoặc dữ liệu ứn
 - **File JSON (`.json`)**: Thích hợp cho cấu hình, danh sách bản ghi mẫu, dữ liệu dạng dictionary.
 - **File CSV (`.csv`)**: Thích hợp cho bảng dữ liệu Marketing, báo cáo, danh sách khách hàng (đọc nhanh bằng `pandas`).
 - **File SQLite (`.db`)**: Nếu ứng dụng cần lưu trữ dữ liệu có cấu trúc câu hỏi/câu trả lời phức tạp hơn.
+- Các file liên quan đên dữ liệu khác như Excel, Work....
 
 ## 2. Lưu ý quan trọng khi dùng Data trong Streamlit
 - Nếu dữ liệu chứa thông tin cá nhân khách hàng (PII) hoặc dữ liệu nhạy cảm, vui lòng thêm tên file vào `.gitignore` để không đẩy lên GitHub.
