@@ -76,14 +76,25 @@ Khi dự án mới bắt đầu (hoặc file `contexts/features/project_overview
    - Khi người dùng trả lời, AI **tự động tổng hợp và GHI ĐÈ thông tin vào `contexts/features/project_overview.md`**, rồi mới bắt đầu tạo mã nguồn!
 
 2. **Nếu người dùng mô tả cụ thể ngay từ đầu** (Ví dụ: *"Tạo cho tôi tool viết caption Facebook AIDA"* hoặc *"Tạo dashboard kết nối 2 API Supabase URL..."*):
-   - AI sẽ **tự động trích xuất ngữ cảnh**.
-   - ⚠️ **LƯU Ý VỀ API URL**: Nếu prompt chứa các đường dẫn API URL (như Supabase Edge Functions, REST API...):
-     - AI **BẮT BUỘC KHÔNG NÊN DỪNG LẠI ĐỂ HỎI CÂU HỎI VĂN BẢN TRUYỀN THỐNG**.
-     - AI phải **TỰ ĐỘNG THỬ NGHIỆM KẾT NỐI API (PROBE/TEST API)** hoặc **VIẾT NGAI SERVICE THÔNG MINH HỖ TRỢ CẢ 2 CHẾ ĐỘ (PUBLIC & AUTH KEY)**.
-     - **QUY TẮC THAM SỐ API (ONE-SHOT DATA)**: Khi gọi API (đặc biệt là POST API thống kê), AI BẮT BUỘC KHÔNG gửi payload JSON rỗng `{}`. Phải tự động truyền các tham số mặc định hợp lý (như `start_date`, `end_date`, `limit`) để API trả về dữ liệu thật ngay từ lần đầu!
-     - **SỬ DỤNG LỚP KẾT NỐI AN TOÀN**: Luôn dùng thư viện `requests` thay vì `urllib` để tránh lỗi SSL Certificate Verify trên macOS.
-     - Service tự động đọc Key từ `config/.env` hoặc cho phép điền trên Sidebar, đồng thời có chế độ fallback an toàn nếu chưa có Key. Trong UI Streamlit, nếu thiếu Key thì dùng `st.warning(...)` hoặc `st.error(...)` màu sắc nổi bật để gây sự chú ý ngay.
-     - **HƯỚNG DẪN Ở CỦA CÂU CHAT**: Sau khi dựng xong ứng dụng, nếu API cần Key xác thực mà chưa có trong `.env`, AI ghi **CẢNH BÁO NỔI BẬT ⚠️** ở cuối câu trả lời:
-       > ⚠️ **LƯU Ý CẦN ĐIỀN API KEY**: Tôi đã dựng xong 100% ứng dụng! Nếu API của bạn yêu cầu Auth Key, bạn chỉ cần mở file `config/.env` điền `API_KEY=...` (hoặc nhập trên Sidebar) là dữ liệu thật sẽ được hiển thị ngay lập tức nhé!
-   - **Tự động GHI ĐÈ file `contexts/features/project_overview.md`** với thông tin dự án mới.
-   - Tiến hành tạo ngay các UI Component và Service tương ứng!
+**Trường Hợp Mô Tả Cụ Thể (Spec-First Onboarding)**
+
+Khi người dùng mô tả cụ thể yêu cầu ngay từ đầu (Ví dụ: *"Tạo tool đọc file Excel bài viết rồi dùng OpenAI audit lỗi chính tả"* hoặc *"Tạo dashboard kết nối Google Sheets URL..."*):
+
+AI tự động trích xuất ngữ cảnh, **GHI ĐÈ** file `contexts/features/project_overview.md` và khởi tạo mã nguồn ngay lập tức.
+
+#### ⚠️ QUY TẮC XỬ LÝ API URL & GOOGLE SHEETS LINK
+
+1. **Không dừng lại phỏng vấn**: Tuyệt đối **KHÔNG** dừng lại để hỏi câu hỏi văn bản truyền thống. AI phải lập tức viết ngay Service xử lý thông minh hỗ trợ song song 2 chế độ: **Public CSV (Link công khai)** và **Auth Key (Quyền riêng tư)**.
+2. **Thử nghiệm kết nối (Probe/Test)**: Tự động chạy kiểm tra kết nối API/Sheet ngầm.
+3. **Tham số mặc định (One-Shot Data Payload)**:
+   - Khi gọi API hoặc đọc Data, BẮT BUỘC **KHÔNG** gửi payload JSON rỗng `{}`.
+   - Phải tự động truyền các tham số mặc định hợp lý (như `limit=10`, `start_date`, `page=1`) để trả về dữ liệu mẫu/dữ liệu thật ngay từ lần đầu tiên chạy app.
+4. **An toàn kết nối SSL**:
+   - Luôn sử dụng thư viện `requests` thay vì `urllib` để tránh lỗi `SSL: CERTIFICATE_VERIFY_FAILED` trên hệ điều hành macOS.
+5. **Cấu hình & Fallback UI**:
+   - Service tự động ưu tiên đọc `API_KEY` / `GOOGLE_SHEET_URL` từ file `config/.env` hoặc từ ô nhập trên `st.sidebar`.
+   - Nếu chưa có Key/Link, hiển thị ngay thông báo `st.warning(...)` hoặc `st.error(...)` với màu sắc nổi bật trên UI Streamlit để thu hút sự chú ý.
+6. **Cảnh báo nhắc nhở ở cuối câu chat**:
+   - Sau khi tạo xong ứng dụng, nếu thiếu cấu hình trong `.env`, AI **BẮT BUỘC** ghi thêm thông báo cảnh báo ở cuối phản hồi:
+
+> ⚠️ **LƯU Ý CẦN ĐIỀN CẤU HÌNH**: Tôi đã dựng xong 100% ứng dụng! Nếu bạn muốn dùng dữ liệu riêng, bạn chỉ cần mở file `config/.env` điền `API_KEY=...` hoặc `GOOGLE_SHEET_URL=...` (hoặc nhập trực tiếp trên Sidebar) là dữ liệu sẽ được hiển thị ngay lập tức nhé!
